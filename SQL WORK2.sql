@@ -265,6 +265,8 @@ INNER JOIN payment p
 GROUP BY name
 LIMIT 5;
 
+-- use sakila
+
 -- 8b. How would you display the view that you created in 8a?
 
 SELECT * FROM Top_five_genres;
@@ -274,21 +276,3 @@ SELECT * FROM Top_five_genres;
 
 drop Top_five_genres;
 
-
-8b. How would you display the view that you created in 8a?
-8c. You find that you no longer need the view top_five_genres. Write a query to delete it.
-
-
-SELECT first_name, last_name
-FROM actor
-WHERE actor_id IN
-(
-  SELECT actor_id
-  FROM film_actor
-  WHERE film_id IN
-  (
-   SELECT film_id
-   FROM film
-   WHERE title = 'ALTER VICTORY'
-  )
-);
